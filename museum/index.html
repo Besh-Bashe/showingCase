@@ -14,19 +14,17 @@
       padding: 0;
       min-height: 100vh; /* Essential for full-page effect */
     }
-    
-    /* ACTUAL PATTERN IMPLEMENTATION */
-    body {
-      /* Visible border area for the pattern */
-      border: 10px solid transparent;
-      
-      /* Background layers */
-       background:
-            url('images/background.jpg') no-repeat center center;
-      /* Pattern tile size */
-      background-size: 40px 40px;
-      font-family: 'Segoe UI', sans-serif;
-    }
+    html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh; /* Full viewport height */
+}
+
+body {
+  background: 
+    url('images/background.jpg') center/cover no-repeat fixed;
+}
 
     .header-bar {
   background: #BA5A5A; /* Full-width banner */
