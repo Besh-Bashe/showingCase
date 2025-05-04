@@ -4,11 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Palestine Museum</title>
+  <meta name="theme-color" content="#BA5A5A">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      background-color: #BA5;
+    :focus { outline: 2px solid #BBAA55; }
+     /* REQUIRED BASE STYLES */
+     html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh; /* Essential for full-page effect */
     }
+    
+    /* ACTUAL PATTERN IMPLEMENTATION */
+    body {
+      /* Visible border area for the pattern */
+      border: 10px solid transparent;
+      
+      /* Background layers */
+      background: 
+        /* Solid inner background */
+        linear-gradient(#f0e9dd, #0a0b05, #0a0b05, #f0e9dd) padding-box,
+        
+        /* Diagonal stripe pattern */
+        repeating-linear-gradient(
+  45deg,
+  #0a0b05 0px,
+  #f0e9dd 10px,
+  #BBAA55 35px,
+  #f0e9dd 40px,
+  #0a0b05 60px
+); border-box;
+      
+      /* Pattern tile size */
+      background-size: 40px 40px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .header-bar {
+  background: #BA5A5A; /* Full-width banner */
+}
+.gallery-item {
+  box-shadow: 0 3px 10px rgba(187, 170, 85, 0.3);
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+  border-bottom-color: #BBAA55; /* Gold accent */
+  box-shadow: 0 5px 15px rgba(187, 170, 85, 0.4);
+}
+
+
     .city:hover .desc {
       max-height: 500px;
       opacity: 1;
@@ -22,14 +68,40 @@
    transition: all 0.3s ease;
       }
 
+      .cont {
+        transition: margin-bottom 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+      }
+
 
       .cont:hover {
         padding-bottom: 15vw;
         transition: padding 0.3s ease;
+        outline: 3px solid #BBAA55;
       }
-      .image-wrapper {
+      .cont:hover img {
+  outline: 2px solid #BBAA55;
+  outline-offset: 3px;
+}
 
-      }
+/* Description scroll for long text */
+.cont > div {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  border-top: 3px solid #BBAA55;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+      
+
+      .image-crop, .image-corp2 {
+  border: 2px solid #f8f5f2; /* Matches body */
+  transition: transform 0.3s;
+}
+
+.image-crop:hover, .image-corp2:hover {
+  transform: scale(1.02);
+  border-color: #BA5A5A; /* Your original color */
+}
 
       .image-crop {
         width: 100%;
@@ -49,12 +121,21 @@
 
       }
 
+      
+  .cont:hover {
+    margin-bottom: 200px; /* Smaller push */
+  }
+
+
     
-    }
+    
   </style>
 </head>
 <body class="min-h-screen p-8">
-  <h1 class="text-4xl font-bold text-white text-center mb-10">Palestine Picture Museum</h1>
+  <header class="bg-[#BA5A5A] text-white py-10 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-2">Palestine Picture Museum</h1>
+    <p class="max-w-2xl mx-auto px-4">A visual journey through historic Palestine</p>
+  </header>
 
   <a href="../index.html" class="fixed top-4 left-4 z-50 bg-white/80 hover:bg-white text-black px-4 py-2 rounded shadow transition-all duration-300 flex items-center gap-2">
   ← Back
@@ -63,7 +144,7 @@
   <div class="grid grid-cols-6 gap-4">
     <!-- 1: Jerusalem (6 columns) -->
     <div class="col-span-6 city transition-all duration-300">
-      <img src="images/old_city__jerusalem.webp" alt="Jerusalem" class="w-full">
+      <img src="images/old_city__jerusalem.webp" alt="Jerusalem" class="w-full gallery-item">
       <div class="desc transition-all duration-300 max-h-0 overflow-hidden opacity-0 bg-white text-black p-4 rounded shadow">
         <p>Before 1948, Jerusalem was a city of significant historical, religious, and cultural importance, revered by Judaism, Christianity, and Islam. It was part of the British Mandate of Palestine, established after World War I, and had a diverse population that included Jews, Arabs, and various Christian communities. The city was marked by its rich tapestry of religious sites, such as the Western Wall, the Church of the Holy Sepulchre, and the Al-Aqsa Mosque. Tensions between the Jewish and Arab populations escalated during the 20th century, particularly following the Balfour Declaration of 1917 and the increasing Jewish immigration driven by Zionist aspirations and persecution in Europe. By 1948, the situation in Jerusalem was increasingly fraught with conflict, setting the stage for the broader Arab-Israeli conflict that would emerge following the declaration of the State of Israel.</p>
       </div>
